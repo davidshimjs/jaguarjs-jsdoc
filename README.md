@@ -13,13 +13,12 @@ $ npm install
 $ grunt demo
 ```
 
-You can see any output related jsdoc process with a `--debug` flag.
-
+2. You can see any output related jsdoc process with a `--debug` flag.
 ```
 $ grunt demo --debug
 ```
 
-2. If you already have jsdoc system, you can use this project as jsdoc template.
+3. If you already have jsdoc system, you can use this project as jsdoc template.
 ```
 $ jsdoc -t `project folder` -c `configuration file` `source files` `README.md file`
 ```
