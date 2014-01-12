@@ -1,6 +1,9 @@
 Jaguar.js template for JSDoc 3
 ---
-[View Jaguar.js Documentations](http://davidshimjs.github.io/jaguarjs/doc/)
+- [Jaguar.js](http://davidshimjs.github.io/jaguarjs)
+- [Jaguar.js Documentations](http://davidshimjs.github.io/jaguarjs/doc)
+- [JSDoc3](https://github.com/jsdoc3/jsdoc)
+- [JSDoc3 API Documentations](http://usejsdoc.org)
 
 Usage
 ---
