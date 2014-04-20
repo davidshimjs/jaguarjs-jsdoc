@@ -43,7 +43,8 @@ You can set options for customizing your documentations.
         "title": "",
         "description": "",
         "keyword": ""
-    }
+    },
+    "linenums": true
 }
 ```
 
