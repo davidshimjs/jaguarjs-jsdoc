@@ -2,15 +2,21 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title><?js= (env.conf.templates.meta.title || title) ?></title>
-    <meta name="description" content="<?js= env.conf.templates.meta.description ?>" />
-    <meta name="keywords" content="<?js= env.conf.templates.meta.keyword ?>" />
-    <meta name="keyword" content="<?js= env.conf.templates.meta.keyword ?>" />
+    <title><?js= ((env.conf.templates.meta && env.conf.templates.meta.title) || title) ?></title>
+    <?js if (env.conf.templates.meta) { ?>
+    <?js if (env.conf.templates.meta.description) { ?><meta name="description" content="<?js= env.conf.templates.meta.description ?>" /><?js } ?>
+    <?js if (env.conf.templates.meta.keyword) { ?>
+        <meta name="keywords" content="<?js= env.conf.templates.meta.keyword ?>" />
+        <meta name="keyword" content="<?js= env.conf.templates.meta.keyword ?>" />
+    <?js } ?>
+    <?js } ?>
+    <?js if (env.conf.templates.openGraph) { ?>
     <meta property="og:title" content="<?js= env.conf.templates.openGraph.title ?>"/>
     <meta property="og:type" content="<?js= env.conf.templates.openGraph.type ?>"/>
     <meta property="og:image" content="<?js= env.conf.templates.openGraph.image ?>"/>
-    <meta property="og:site_name" content="<?js= env.conf.templates.openGraph.site_name ?>"/>
+    <?js if (env.conf.templates.openGraph.site_name) { ?><meta property="og:site_name" content="<?js= env.conf.templates.openGraph.site_name ?>"/><?js } ?>
     <meta property="og:url" content="<?js= env.conf.templates.openGraph.url ?>"/>
+    <?js } ?>
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
     <script src="scripts/jquery.min.js"></script>
