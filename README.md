@@ -1,24 +1,45 @@
-Jaguar.js template for JSDoc 3
+Template for JSDoc 3
 ---
-- [Jaguar.js](http://davidshimjs.github.io/jaguarjs)
-- [Jaguar.js Documentations](http://davidshimjs.github.io/jaguarjs/doc)
+
+This forked is for supporting the automation tools.
+
+- [Original Template](https://github.com/davidshimjs/jaguarjs-jsdoc)
 - [JSDoc3](https://github.com/jsdoc3/jsdoc)
 - [JSDoc3 API Documentations](http://usejsdoc.org)
 
 Usage
 ---
-1. If you want to create documentations with sample files, you can use commands below.
+1. Before using `grunt` with this demo, running this command first
 ```
 $ npm install
+```
+
+2. If you want to create documentations with sample files, you can use commands below.
+```
 $ grunt demo
 ```
 
-2. You can see any output related jsdoc process with a `--debug` flag.
+3. You can see any output related jsdoc process with a `--debug` flag.
 ```
 $ grunt demo --debug
 ```
 
-3. If you already have jsdoc system, you can use this project as jsdoc template.
+4. Using this workspace.
+```
+$ grunt build
+```
+
+5. You can provide external source files or path, its destination path and config file by running this command.
+```
+$ grunt build --src-`source path` --dst=`destination path` --config=`configuration path`
+```
+
+6. You can provide specific Gruntfile.js and combine with options from above.
+```
+$ grunt build --gruntfile `path of specific Gruntfile.js` --src-`source path` --dst=`destination path` --config=`configuration path`
+```
+
+7. If you already have jsdoc system, you can use this project as jsdoc template.
 ```
 $ jsdoc -t `project folder` -c `configuration file` `source files` `README.md file`
 ```
@@ -29,7 +50,7 @@ You can set options for customizing your documentations.
 
 ```
 "templates": {
-    "applicationName": "Demo",
+    "applicationName": "",
     "disqus": "",
     "googleAnalytics": "",
     "openGraph": {
@@ -50,6 +71,3 @@ You can set options for customizing your documentations.
 License
 ---
 This project under the MIT License. and this project refered by default template for JSDoc 3.
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/davidshimjs/jaguarjs-jsdoc/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
