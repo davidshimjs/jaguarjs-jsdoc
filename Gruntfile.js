@@ -3,9 +3,21 @@
  */
 module.exports = function (grunt) {
     var path = require('path');
+
+    var DEFAULT_WORKSPACE = 'workspace';
+    var DEFAULT_SRC = DEFAULT_WORKSPACE + '/src';
+    var DEFAULT_DST = DEFAULT_WORKSPACE + '/dst';
+    var DEFAULT_CONFIG_PATH = 'conf.json';
+
+    // demo purpose only
     var DEMO_PATH = 'demo/dist';
     var DEMO_SAMPLE_PATH = 'demo/sample';
-    
+
+    // variables for cmd options with default if not provide.
+    var srcPath = DEFAULT_SRC; 				// --src
+    var dstPath = DEFAULT_DST; 				// --dst
+    var configPath = DEFAULT_CONFIG_PATH; 	// --config
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -55,23 +67,37 @@ module.exports = function (grunt) {
         clean: {
             demo: {
                 src: DEMO_PATH
+            },
+            build: {
+                src: dstPath
             }
         },
 
         jsdoc: {
+            options: {
+                verbose: true,
+                configure: 'conf.json',
+                template: './',
+                'private': false
+            },
             demo: {
                 src: [
                     DEMO_SAMPLE_PATH + '/**/*.js',
-                    
+
                     // You can add README.md file for index page at documentations.
                     'README.md'
                 ],
                 options: {
-                    verbose: true,
                     destination: DEMO_PATH,
-                    configure: 'conf.json',
-                    template: './',
-                    'private': false
+                }
+            },
+            build: {
+                src: [
+                    srcPath + '/**/*.js',
+                    'README.md'
+                ],
+                options: {
+                    destination: dstPath,
                 }
             }
         },
@@ -114,6 +140,22 @@ module.exports = function (grunt) {
         'connect:demo',
         'watch'
     ]);
+
+    grunt.registerTask('build', 'Create documentations', function () {
+        var src = grunt.option('src');
+        var dst = grunt.option('dst');
+        var config = grunt.option('config');
+
+        srcPath = src;
+        dstPath = dst;
+        configPath = config;
+
+        grunt.log.writeln('Sources Path: ' + srcPath);
+        grunt.log.writeln('Destination Path: ' + dstPath);
+        grunt.log.writeln('Config Path: ' + configPath);
+
+        grunt.task.run(['less', 'clean:build', 'jsdoc:build']);
+    });
 
     grunt.registerTask('demo', 'Create documentations for demo', [
         'less',
