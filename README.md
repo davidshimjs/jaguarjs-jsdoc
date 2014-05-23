@@ -1,9 +1,8 @@
 Template for JSDoc 3
 ---
 
-This forked is for supporting the automation tools.
+This forked is for supporting the automation tools. For original [here](https://github.com/davidshimjs/jaguarjs-jsdoc).
 
-- [Original Template](https://github.com/davidshimjs/jaguarjs-jsdoc)
 - [JSDoc3](https://github.com/jsdoc3/jsdoc)
 - [JSDoc3 API Documentations](http://usejsdoc.org)
 
