@@ -23,7 +23,8 @@
 			"title": "",
 			"description": "",
 			"keyword": ""
-		}
+		},
+		"linenums": false
 	},
 	"markdown": {
 		"parser": "gfm",
