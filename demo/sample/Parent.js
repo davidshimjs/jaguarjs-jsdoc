@@ -39,5 +39,28 @@ Parent.prototype = /** @lends Parent.prototype */{
      * @return Plain Text without type definition
      */
     testReturnPlainText: function () {
+    },
+
+    /**
+     * @example
+     * <caption>JSDoc3 Captions</caption>
+     * var a = 0;
+     * 
+     * for (var i = 0; i < 10; i++) {
+     *     a++;
+     * }
+     * 
+     * @example
+     * jaguarjs-doc uses markdown style.
+     * 
+     * ```
+     * var a = 0;
+     * 
+     * for (var i = 0; i < 10; i++) {
+     *     a++;
+     * }
+     * ```
+     */
+    testExample: function () {
     }
 };
