@@ -20,9 +20,24 @@ Parent.prototype = /** @lends Parent.prototype */{
      * @param {Function} [paramCallback]
      * @param {String} paramCallback.firstParam
      * @param {String} paramCallback.secondParam
-     * @return {Array|Object} consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+     * @return {Array|Object} Return value as non-object type. (or an object without properties)
      */
     testMethod: function (paramA, paramB, paramCallback) {
         return {};
+    },
+
+    /**
+     * This method will return object value.
+     * @return {Object} test returns object.
+     * @return {Boolean} test.foo property description
+     * @return {Number} test.bar optional property
+     */
+    testReturnValue: function () {
+    },
+
+    /**
+     * @return Plain Text without type definition
+     */
+    testReturnPlainText: function () {
     }
-}
+};
