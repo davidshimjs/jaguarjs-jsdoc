@@ -187,7 +187,8 @@ li {
   margin-top: 10px;
   font-size: 13px;
 }
-.main .description ul {
+.main .description ul,
+.main .description ol {
   margin-bottom: 15px;
 }
 .main .description p {
