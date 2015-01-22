@@ -268,7 +268,7 @@ li {
   font-weight: normal;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-.main .nameContainer h4 .type-signature a {
+.main .nameContainer h4 .type-signature.type a {
   color: #fff;
 }
 .main pre {
