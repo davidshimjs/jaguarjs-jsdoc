@@ -129,8 +129,11 @@ function generate(title, docs, filename, resolveLinks) {
     
     if (resolveLinks) {
         html = helper.resolveLinks(html); // turn {@link foo} into <a href="foodoc.html">foo</a>
+        
+        // Add a link target for external links @davidshimjs
+        html = html.toString().replace(/<a\s+([^>]*href\s*=\s*['"]*[^\s'"]*:\/\/)/ig, '<a target="_blank" $1');
     }
-    
+
     fs.writeFileSync(outpath, html, 'utf8');
 }
 
