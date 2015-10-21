@@ -253,6 +253,30 @@ function buildNav(members) {
             });
         });
     }
+	
+    if (members.globals.length) {
+        nav.push({
+            type: 'namespace',
+            longname: "global",
+            name: "global",
+            members: find({
+                kind: 'member',
+                scope: "global"
+            }),
+            methods: find({
+                kind: 'function',
+                scope: "global"
+            }),
+            typedefs: find({
+                kind: 'typedef',
+                scope: "global"
+            }),
+            events: find({
+                kind: 'event',
+                scope: "global"
+            })
+        });
+    }
 
     return nav;
 }
