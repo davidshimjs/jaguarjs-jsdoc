@@ -1,33 +1,31 @@
-Jaguar.js template for JSDoc 3
----
-- [Jaguar.js](http://davidshimjs.github.io/jaguarjs)
-- [Jaguar.js Documentations](http://davidshimjs.github.io/jaguarjs/doc)
+# Jaguar.js template for JSDoc 3
+
+- [Jaguar.js](http://jaguarjs.com/)
+- [Jaguar.js Documentations](http://jaguarjs.com/doc/)
 - [JSDoc3](https://github.com/jsdoc3/jsdoc)
 - [JSDoc3 API Documentations](http://usejsdoc.org)
 
-Usage
----
-1. If you want to create documentations with sample files, you can use commands below.
-```
-$ npm install
-$ grunt demo
+## Installation
+
+Install the template using NPM:
+
+```bash
+npm install jaguarjs-jsdoc --save-dev
 ```
 
-2. You can see any output related jsdoc process with a `--debug` flag.
-```
-$ grunt demo --debug
+## Usage
+
+If you already have JSDoc system, you can use this project as JSDoc template. More information about JSDoc command-line arguments can be found [here](http://usejsdoc.org/about-commandline.html).
+ 
+```bash
+jsdoc -c conf.json -R README.md
 ```
 
-3. If you already have jsdoc system, you can use this project as jsdoc template.
-```
-$ jsdoc -t `project folder` -c `configuration file` `source files` `README.md file`
-```
+### conf.json
 
-conf.json
----
-You can set options for customizing your documentations.
+You can set options for customizing your documentations. Notice the `"template"` field for setting the path to **jaguarjs-jsdoc**.
 
-```
+```json
 "templates": {
     "applicationName": "Demo",
     "disqus": "",
@@ -44,13 +42,25 @@ You can set options for customizing your documentations.
         "description": "",
         "keyword": ""
     },
-    "linenums": true
+    "linenums": true,
+    "source": {
+        "include": [
+            "./src/"
+        ],
+        "includePattern": ".+\\.js(doc)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "opts": {
+        "encoding": "utf8",
+        "recurse": true,
+        "private": false,
+        "lenient": true,
+        "destination": "./docs",
+        "template": "./node_modules/jaguarjs-jsdoc"
+    }
 }
 ```
 
-License
----
+## License
+
 This project under the MIT License. and this project refered by default template for JSDoc 3.
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/davidshimjs/jaguarjs-jsdoc/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

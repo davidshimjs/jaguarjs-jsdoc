@@ -1,27 +1,26 @@
 {
   "name": "jaguarjs-jsdoc",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Jaguar.js template for JSDoc 3",
-  "main": "Gruntfile.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "connect-livereload": "~0.3.2",
-    "grunt": "~0.4.2",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-less": "~0.9.0",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-jsdoc": "~0.5.1",
-    "grunt-contrib-connect": "~0.6.0"
+    "jshint": "^2.9.2",
+    "less": "^2.7.1",
+    "less-plugin-clean-css": "^1.5.1",
+    "rimraf": "^2.5.2",
+    "uglify-js": "^2.6.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf static/**/jaguar.*",
+    "lint": "jshint publish.js src/scripts/*.js || exit 0",
+    "build": "npm run clean && npm run lint && npm run build:js && npm run build:css",
+    "build:js": "uglifyjs src/scripts/*.js -m -o static/scripts/jaguar.js",
+    "build:css": "lessc src/styles/jaguar.less static/styles/jaguar.css --clean-css",
+    "test": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/davidshimjs/jaguarjs-jsdoc.git"
+    "url": "git://github.com/pixijs/jaguarjs-jsdoc.git"
   },
   "keywords": [
     "jsdoc",
@@ -30,9 +29,12 @@
     "template"
   ],
   "author": "davidshimjs",
+  "contributors": [
+    "Matt Karl <matt@mattkarl.com>"
+  ],
   "license": "MIT",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/davidshimjs/jaguarjs-jsdoc/issues"
+    "url": "https://github.com/pixijs/jaguarjs-jsdoc/issues"
   }
 }
