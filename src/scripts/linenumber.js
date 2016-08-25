@@ -1,13 +1,13 @@
 (function() {
     var counter = 0;
     var numbered;
-    var source = document.getElementsByClassName('prettyprint source');
+    var source = document.getElementById('source-code');
 
-    if (source && source[0]) {
+    if (source) {
         var linenums = config.linenums;
 
         if (linenums) {
-            source = source[0].getElementsByTagName('ol')[0];
+            source = source.getElementsByTagName('ol')[0];
 
             numbered = Array.prototype.slice.apply(source.children);
             numbered = numbered.map(function(item) {
@@ -15,7 +15,7 @@
                 item.id = 'line' + counter;
             });
         } else {
-            source = source[0].getElementsByTagName('code')[0];
+            source = source.getElementsByTagName('code')[0];
 
             numbered = source.innerHTML.split('\n');
             numbered = numbered.map(function(item) {
