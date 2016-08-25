@@ -1,6 +1,6 @@
 {
   "name": "jaguarjs-jsdoc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Jaguar.js template for JSDoc 3",
   "dependencies": {},
   "devDependencies": {
