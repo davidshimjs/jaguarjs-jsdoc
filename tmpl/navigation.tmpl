@@ -13,7 +13,7 @@ var self = this;
     ?>
         <li class="item" data-name="<?js= item.longname ?>">
             <span class="title">
-                <?js= self.linkto(item.longname, item.longname) ?>
+                <?js= self.linkto(item.longname, item.displayName) ?>
                 <?js if (item.type === 'namespace') { ?>
                 <span class="static">static</span>
                 <?js } ?>
