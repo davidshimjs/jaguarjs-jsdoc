@@ -209,6 +209,9 @@ function buildNav(members) {
                 longname: v.longname,
                 name: v.name,
                 displayName: v.name.replace(/\b(module|event):/g, ''),
+
+                url: helper.longnameToUrl[v.longname] || v.longname,
+
                 members: find({
                     kind: 'member',
                     memberof: v.longname
@@ -236,6 +239,9 @@ function buildNav(members) {
                 longname: v.longname,
                 name: v.name,
                 displayName: v.name.replace(/\b(module|event):/g, ''),
+
+                url: helper.longnameToUrl[v.longname] || v.longname,
+
                 members: find({
                     kind: 'member',
                     memberof: v.longname
@@ -263,6 +269,9 @@ function buildNav(members) {
                 longname: v.longname,
                 name: v.name,
                 displayName: v.name.replace(/\b(module|event):/g, ''),
+
+                url: helper.longnameToUrl[v.longname] || v.longname,
+
                 members: find({
                     kind: 'member',
                     memberof: v.longname
