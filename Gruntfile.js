@@ -108,7 +108,7 @@ module.exports = function (grunt) {
         'grunt-contrib-copy',
         'grunt-contrib-clean',
         'grunt-contrib-less',
-        'grunt-jsdoc',
+        'grunt-jsdoc'
     ].forEach(function (taskName) {
         grunt.loadNpmTasks(taskName);
     });
