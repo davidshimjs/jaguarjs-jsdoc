@@ -4,6 +4,8 @@
   "description": "Jaguar.js template for JSDoc 3",
   "main": "Gruntfile.js",
   "dependencies": {
+    "taffydb": "^2.7.2",
+    "underscore": "^1.7.0"
   },
   "devDependencies": {
     "connect-livereload": "~0.3.2",
