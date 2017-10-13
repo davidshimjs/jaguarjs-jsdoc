@@ -54,6 +54,7 @@ li {
   width: 100%;
 }
 .navigation li.item {
+  overflow: hidden;
   margin-bottom: 8px;
   padding-bottom: 8px;
   border-bottom: 1px solid #333;
