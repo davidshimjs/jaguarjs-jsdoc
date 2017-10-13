@@ -99,20 +99,14 @@ function shortenPaths(files, commonPrefix) {
     return files;
 }
 
-function resolveSourcePath(filepath) {
-    return path.resolve(process.cwd(), filepath);
-}
-
 function getPathFromDoclet(doclet) {
     if (!doclet.meta) {
         return;
     }
 
-    var filepath = doclet.meta.path && doclet.meta.path !== 'null' ?
+    return doclet.meta.path && doclet.meta.path !== 'null' ?
         doclet.meta.path + '/' + doclet.meta.filename :
         doclet.meta.filename;
-
-    return filepath;
 }
     
 function generate(title, docs, filename, resolveLinks) {
@@ -140,7 +134,7 @@ function generate(title, docs, filename, resolveLinks) {
 function generateSourceFiles(sourceFiles) {
     Object.keys(sourceFiles).forEach(function(file) {
         var source;
-        // links are keyed to the shortened path in each doclet's `meta.filename` property
+        // links are keyed to the shortened path in each doclet's `meta.shortpath.` property
         var sourceOutfile = helper.getUniqueFilename(sourceFiles[file].shortened);
         helper.registerLink(sourceFiles[file].shortened, sourceOutfile);
 
@@ -318,15 +312,13 @@ exports.publish = function(taffyData, opts, tutorials) {
 
         // build a list of source files
         var sourcePath;
-        var resolvedSourcePath;
         if (doclet.meta) {
             sourcePath = getPathFromDoclet(doclet);
-            resolvedSourcePath = resolveSourcePath(sourcePath);
             sourceFiles[sourcePath] = {
-                resolved: resolvedSourcePath,
+                resolved: sourcePath,
                 shortened: null
             };
-            sourceFilePaths.push(resolvedSourcePath);
+            sourceFilePaths.push(sourcePath);
         }
     });
     
@@ -376,13 +368,13 @@ exports.publish = function(taffyData, opts, tutorials) {
         var url = helper.createLink(doclet);
         helper.registerLink(doclet.longname, url);
 
-        // replace the filename with a shortened version of the full path
+        // add a shortened version of the full path
         var docletPath;
         if (doclet.meta) {
             docletPath = getPathFromDoclet(doclet);
             docletPath = sourceFiles[docletPath].shortened;
             if (docletPath) {
-                doclet.meta.filename = docletPath;
+                doclet.meta.shortpath = docletPath;
             }
         }
     });
